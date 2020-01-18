@@ -1,0 +1,27 @@
+<h1>Customer Data Form</h1>
+<div class="container">
+    <div class="alert alert-warning" *ngIf="firstName.dirty && firstName.invalid">Enter Valid First Name</div>
+    <div class="alert alert-warning" *ngIf="lastName.dirty && lastName.invalid">Enter Valid Last Name</div>
+    <div class="alert alert-warning" *ngIf="email.dirty && email.invalid">Enter Valid Email</div>
+    <form (ngSubmit)="!todoForm.invalid && save()" #todoForm="ngForm">
+        <fieldset class="form-group">
+            <label>First Name </label>
+            <input type="text" name="firstName"  [(ngModel)]="myTodo.firstName"
+             class="form-control mb-4 col-4" placeholder="Enter first name"
+             required="required" minlength="1" #firstName="ngModel">
+        </fieldset>
+        <fieldset class="form-group">
+            <label>Last Name </label>
+            <input type="text" name="lastName" [(ngModel)]="myTodo.lastName" 
+            class="form-control mb-4 col-4" placeholder="Enter last name"
+            required="required" minlength="1" #lastName="ngModel">
+        </fieldset>
+        <fieldset class="form-group">
+            <label>Email </label>
+            <input type="text" name="email" [(ngModel)]="myTodo.email" 
+            class="form-control mb-4 col-4" placeholder="eg. abc@gmail.com"
+            required="required" pattern="^(.+@.+)" #email="ngModel">
+        </fieldset>
+        <button type='submit' class="btn btn-success">Save</button>
+    </form>
+</div>

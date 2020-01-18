@@ -1,0 +1,39 @@
+
+
+<div class='container' >
+    <h1>Use the following credentials to login</h1>
+    <div>Username: admin</div>
+    <div>Password: admin</div>
+    <div id="loginbox" style="margin-top: 50px;"
+    class="mainbox col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-5">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Sign In</div>
+            </div>
+
+            <div style="padding-top: 30px" class="panel-body">
+                
+                <form (ngSubmit)="handleLogin()" class="form-horizental">
+                    <div *ngIf='invalidLogin' class="alert alert-warning">{{errorMessage}}</div>
+                
+                <div>
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" name="username" [(ngModel)]="username" placeholder="username" class="form-control">
+                    </div>
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" name="password" [(ngModel)]='password' placeholder="password" class="form-control">
+                    </div>
+                    <div style="margin-top: 10px" class="form-group">						
+                        <div class="col-sm-20 controls">
+                            <button type="submit" class="btn btn-success col-md-50"> Login </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
