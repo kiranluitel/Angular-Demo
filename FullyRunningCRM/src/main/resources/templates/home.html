@@ -1,0 +1,58 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+<title>Home</title>
+<link rel = "icon" href =  
+"https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png" 
+        type = "image/x-icon"> 
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<style>
+.mycss{width: 70%; background: #09c332; margin-top: 0px; padding:15px 0px 15px 15px;width: 100%; margin:auto; color: #FFFFFF;}
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+	<br>
+	<br>
+	<a th:href="@{/home}"> Home</a>
+	<hr>
+	
+	<h3 class="mycss" >Thank you for entering into Kiran's Website</h3>
+	
+	
+	<hr>
+	<p>This site is hosted through Amazon Elastic Beanstalk, and Amazon RDS is used for database hosting.</p>
+	
+	<p><h5>Please Check out the list of my projects below</h5></p>
+	<div>
+	
+	
+	<a th:href="@{/customers/list}" ><h7>Customer RelationShip Manager (CRM)- Spring Boot Project</h7></a>
+	
+	<br>
+	<div>
+	This project is built
+	using Spring (Boot, MVC, Data, REST, Hibernate, JPA), Swagger, Html, Thymeleaf, JavaScript, BootStrap.
+	
+	This project also provide REST endpoints. Please check out the Service definition <a th:href="@{/customers/list}"
+	 target="_blank">here</a>.
+	You can also find the source code of this project <a href="https://github.com/kiranluitel/CRM-with--spring-boot"
+	 target="_blank">here</a>.
+	 </div>
+	
+	</div>
+		
+
+</div>
+</body>
+
+</html>

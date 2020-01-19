@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+<title>CRM Page</title>
+<style>
+.mycss{width: 70%; background: #09c332; margin-top: 0px; padding:15px 0px 15px 15px;width: 100%; margin:auto; color: #FFFFFF;}
+</style>
+<link rel = "icon" href =  
+"https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png" 
+        type = "image/x-icon"> 
+</head>
+
+<body>
+	
+
+
+	
+	
+	
+	<div class="container">
+	
+			<br><br>
+					<a th:href="@{/home}"> Home</a>
+					<hr>
+			
+			
+			
+			<h3 class="mycss" >CRM- TEST IT BELOW</h3>
+			<hr>
+			<p >
+			You can test this CRM app by adding your information, updating or deleting anyone's information. You have
+			administrative privilege here. The same functionality can
+			be used by any organization to keep record of its customer. 
+			 Thanks for checking it out. </p>
+			<!--  add our html table here -->
+			
+			<a th:href="@{/customers/showFormForAdd}" class="btn btn-primary btn-sm mb-3">Add your info</a>
+				<br>
+		
+			<table class="table table-bordered table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Action</th>
+					</tr>
+					
+				</thead>
+				
+				<tbody>
+				
+					<tr th:each="tempCustomer : ${customers }">
+						<td th:text="${tempCustomer.firstName}"> </td>
+						<td th:text= "${tempCustomer.lastName}"> </td>
+						<td th:text="${tempCustomer.email}"> </td>
+					<td> 
+							<a th:href="@{/customers/showFormForUpdate(customerId=${tempCustomer.id })}" class="btn btn-primary btn-sm">Update</a>
+							<a th:href="@{/customers/deleteCustomer(customerId=${tempCustomer.id })}" class="btn btn-primary btn-sm"  
+							onclick="if(!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
+						</td>
+					</tr>
+				</tbody>
+				
+						
+			</table>
+	
+				
+		</div>
+	
+	
+	
+
+</body>
+
+
+</html>

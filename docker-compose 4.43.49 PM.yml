@@ -1,0 +1,46 @@
+version: '3.7'
+services:
+
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: springstudent
+      MYSQL_USER: springstudent
+      MYSQL_PASSWORD: springstudent
+      MYSQL_DATABASE: web_customer_tracker
+    volumes:
+      - mysql-database-volume:/var/lib/mysql
+    networks:
+      - currency-compose-network
+
+  backend-code:
+    image: kiranluitel/angular:backend-code
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      HOSTNAME: mysql
+    depends_on:
+      - mysql
+    networks:
+      - currency-compose-network
+  
+  frontend-code:
+    image: kiranluitel/angular:frontend-code
+    ports:
+      - "4200:80"
+    restart: always
+    depends_on:
+      - backend-code
+    networks:
+      - currency-compose-network
+  
+  
+    
+volumes:
+  mysql-database-volume:   
+networks:
+  currency-compose-network:
+        
